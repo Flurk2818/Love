@@ -1,99 +1,514 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Spread Love</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>LOVE - Spread Digital Affection</title>
+    <style>
+      /* Global Styles & Animated Gradient Background */
+      body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(-45deg, #290d35, #7d1b7b, #cc3366, #660066);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+        color: #fff;
+        position: relative;
+        overflow-x: hidden;
+      }
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Header & Navigation */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 1em 2em;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 100;
+      }
+      header h1 {
+        font-size: 2em;
+        text-shadow: 0 0 10px #ff3366;
+        margin: 0;
+      }
+      nav a {
+        margin: 0 1em;
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      nav a:hover {
+        color: #ff6699;
+      }
+      #darkModeToggle {
+        background: transparent;
+        border: 1px solid #fff;
+        color: #fff;
+        padding: 0.5em 1em;
+        cursor: pointer;
+      }
+
+      /* Hero Section & Animated Hearts */
+      .hero {
+        padding-top: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+      .heart-container {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        margin: 2em 0;
+      }
+      .heart-container svg {
+        position: absolute;
+        filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.7));
+        animation: pulse 2s infinite, float 3s ease-in-out infinite;
+      }
+      /* Three hearts with different sizes & positions */
+      #heart1 {
+        width: 150px;
+        height: 150px;
+        top: -20px;
+        left: -50px;
+      }
+      #heart2 {
+        width: 200px;
+        height: 200px;
+        top: 0;
+        left: 50px;
+      }
+      #heart3 {
+        width: 100px;
+        height: 100px;
+        bottom: -20px;
+        right: -50px;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.7));
+        }
+        50% {
+          transform: scale(1.1);
+          filter: drop-shadow(0 0 20px rgba(255, 0, 0, 1));
+        }
+        100% {
+          transform: scale(1);
+          filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.7));
+        }
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      /* "Buy Now" Button */
+      #buy {
+        background: #ff3366;
+        padding: 1em 2em;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.5em;
+        cursor: pointer;
+        transition: transform 0.3s, background-color 0.3s;
+        text-decoration: none;
+        color: #fff;
+        margin: 1em;
+      }
+      #buy:hover {
+        transform: scale(1.1);
+        background-color: #ff6699;
+      }
+
+      /* "Spread Love" Text with Color Shifting */
+      .spread-love {
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+        font-size: 2.5em;
+        margin: 1em 0;
+      }
+      .spread-love h2 {
+        transition: color 1s;
+      }
+      .spread-love h2:hover {
+        animation: colorShift 3s infinite;
+      }
+      @keyframes colorShift {
+        0% {
+          color: #ff3366;
+        }
+        50% {
+          color: #ff6699;
+        }
+        100% {
+          color: #ff3366;
+        }
+      }
+
+      /* Cupid Arrow Easter Egg */
+      .cupid-arrow {
+        position: absolute;
+        top: 30%;
+        left: -50px;
+        width: 50px;
+        animation: flyArrow 10s linear infinite;
+        opacity: 0;
+      }
+      @keyframes flyArrow {
+        0% {
+          left: -50px;
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        50% {
+          left: calc(100% + 50px);
+          opacity: 1;
+        }
+        90% {
+          opacity: 0;
+        }
+        100% {
+          left: calc(100% + 50px);
+          opacity: 0;
+        }
+      }
+
+      /* Cupid Bot Section with Typewriter Effect & Glitch on Hover */
+      .cupid-bot {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 2em;
+        margin: 2em auto;
+        max-width: 600px;
+        border-radius: 10px;
+        text-align: center;
+        cursor: pointer;
+      }
+      .cupid-bot h2 {
+        margin-top: 0;
+        text-shadow: 0 0 5px #ff3366;
+      }
+      .typewriter p {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 3px solid #ff3366;
+        font-size: 1.2em;
+        animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+      }
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #ff3366;
+        }
+      }
+      .cupid-bot:hover {
+        animation: glitch 0.5s;
+      }
+      @keyframes glitch {
+        0% {
+          transform: translate(0);
+        }
+        20% {
+          transform: translate(-2px, 2px);
+        }
+        40% {
+          transform: translate(2px, -2px);
+        }
+        60% {
+          transform: translate(-2px, -2px);
+        }
+        80% {
+          transform: translate(2px, 2px);
+        }
+        100% {
+          transform: translate(0);
+        }
+      }
+      #newRhyme {
+        margin-top: 1em;
+        padding: 0.5em 1em;
+        background: #ff3366;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      #newRhyme:hover {
+        background: #ff6699;
+      }
+
+      /* Secret Love Letter Popup */
+      #loveLetterBtn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #ff3366;
+        border: none;
+        padding: 0.8em 1.2em;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        z-index: 200;
+        transition: background-color 0.3s;
+      }
+      #loveLetterBtn:hover {
+        background: #ff6699;
+      }
+      .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 300;
+        justify-content: center;
+        align-items: center;
+      }
+      .popup-content {
+        background: #fff;
+        color: #000;
+        padding: 2em;
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+        animation: popupFadeIn 0.5s;
+      }
+      @keyframes popupFadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .popup-content .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        font-size: 1.5em;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 1em;
+        background: rgba(0, 0, 0, 0.6);
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        font-size: 0.8em;
+        z-index: 100;
+      }
+
+      /* Dark Mode Adjustments */
+      body.dark-mode {
+        background: linear-gradient(-45deg, #1e0f2b, #5d1457, #a8297d, #4b0b3b);
+      }
+      body.dark-mode header {
+        background: rgba(0, 0, 0, 0.8);
+      }
+      body.dark-mode #buy {
+        background: #a8297d;
+      }
+      body.dark-mode #buy:hover {
+        background: #c74396;
+      }
+    </style>
     <script>
-      window.onload = function () {
-        setInterval(() => {
-          document.getElementById("heart").style.height = "30vw";
-          document.getElementById("heart").style.transition = "height 0.5s";
-          document.getElementById("heart").style.transitionTimingFunction = "ease-in-out";
-          document.getElementById("heart-1").style.height = "25vw";
-          document.getElementById("heart-1").style.transition = "height 0.5s";
-          document.getElementById("heart-1").style.transitionTimingFunction = "ease-in-out";
-          document.getElementById("heart-2").style.height = "15vw";
-          document.getElementById("heart-2").style.transition = "height 0.5s";
-          document.getElementById("heart-2").style.transitionTimingFunction = "ease-in-out";
-          document.getElementById("buy").style.fontSize = "2em";
-          document.getElementById("buy").style.transition = "font-size 0.5s";
-          document.getElementById("buy").style.transitionTimingFunction = "ease-in-out";
-          document.getElementById("spread").style.fontSize = "2em";
-          document.getElementById("spread").style.transition = "font-size 0.5s";
-          document.getElementById("spread").style.transitionTimingFunction = "ease-in-out";
-          document.getElementById("love").style.fontSize = "2em";
-          document.getElementById("love").style.transition = "font-size 0.5s";
-          document.getElementById("love").style.transitionTimingFunction = "ease-in-out";
-          setTimeout(() => {
-            document.getElementById("heart").style.height = "25vw";
-            document.getElementById("heart").style.transition = "height 0.5s";
-            document.getElementById("heart").style.transitionTimingFunction = "ease-in-out";
-            document.getElementById("heart-1").style.height = "22vw";
-            document.getElementById("heart-1").style.transition = "height 0.5s";
-            document.getElementById("heart-1").style.transitionTimingFunction = "ease-in-out";
-            document.getElementById("heart-2").style.height = "12vw";
-            document.getElementById("heart-2").style.transition = "height 0.5s";
-            document.getElementById("heart-2").style.transitionTimingFunction = "ease-in-out";
-            document.getElementById("buy").style.fontSize = "1.5em";
-            document.getElementById("buy").style.transition = "font-size 0.5s";
-            document.getElementById("buy").style.transitionTimingFunction = "ease-in-out";
-            document.getElementById("spread").style.fontSize = "1.9em";
-            document.getElementById("spread").style.transition = "font-size 0.5s";
-            document.getElementById("spread").style.transitionTimingFunction = "ease-in-out";
-            document.getElementById("love").style.fontSize = "1.9em";
-            document.getElementById("love").style.transition = "font-size 0.5s";
-            document.getElementById("love").style.transitionTimingFunction = "ease-in-out";
-          }, 500);
-        }, 1000);
-      };
+      document.addEventListener("DOMContentLoaded", function () {
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        darkModeToggle.addEventListener("click", () => {
+          document.body.classList.toggle("dark-mode");
+        });
+
+        // Secret Love Letter Popup
+        const loveLetterBtn = document.getElementById("loveLetterBtn");
+        const loveLetterPopup = document.getElementById("loveLetterPopup");
+        const closePopup = document.querySelector(".popup-content .close");
+        loveLetterBtn.addEventListener("click", () => {
+          loveLetterPopup.style.display = "flex";
+        });
+        closePopup.addEventListener("click", () => {
+          loveLetterPopup.style.display = "none";
+        });
+        window.addEventListener("click", (e) => {
+          if (e.target === loveLetterPopup) {
+            loveLetterPopup.style.display = "none";
+          }
+        });
+
+        // Cupid Bot: New Rhyme Generator
+        const rhymes = [
+          `"In the labyrinth of hearts, where pixels dance and play, <br>
+          Cupid Bot whispers secrets that light up your day. <br>
+          Through cosmic codes and digital streams, love’s fire ignites, <br>
+          Join the revolution of affection, where every soul unites."`,
+          `"Love is the code that compiles the universe, <br>
+          weaving threads of passion in every verse. <br>
+          Let Cupid Bot guide you through the digital night, <br>
+          where every click kindles a spark so bright."`,
+          `"In binary dreams and neon light, love transcends the digital night. <br>
+          Cupid Bot crafts an invite so rare, connecting souls with tender care."`
+        ];
+        const cupidRhyme = document.getElementById("cupid-rhyme");
+        const newRhymeBtn = document.getElementById("newRhyme");
+        newRhymeBtn.addEventListener("click", () => {
+          const randomRhyme = rhymes[Math.floor(Math.random() * rhymes.length)];
+          // Reset typewriter animation
+          cupidRhyme.style.animation = "none";
+          cupidRhyme.offsetHeight; // Trigger reflow
+          cupidRhyme.style.animation = null;
+          cupidRhyme.innerHTML = randomRhyme;
+        });
+      });
     </script>
   </head>
-  <body style="background-color: #2f2f2f; overflow: hidden; margin: 0;">
-    <!-- Header with Navigation -->
-    <header style="width: 100%; height: 5em; background-color: #292929; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; left: 0; padding: 0 10px; box-sizing: border-box;">
-      <h1 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: white; margin: 0;">Love</h1>
+  <body>
+    <!-- Header & Navigation -->
+    <header>
+      <h1>LOVE</h1>
       <nav>
-        <a href="#" style="color: white; text-decoration: none; margin: 0 10px; font-family: Arial, Helvetica, sans-serif;">Dex</a>
-        <a href="https://t.me/GetLoveSol" style="color: white; text-decoration: none; margin: 0 10px; font-family: Arial, Helvetica, sans-serif;">TG</a>
-        <a href="https://x.com/GetLoveio" style="color: white; text-decoration: none; margin: 0 10px; font-family: Arial, Helvetica, sans-serif;">X</a>
+        <a href="#" title="Dex link (coming soon)">Dex</a>
+        <a href="https://t.me/GetLoveSol" target="_blank">TG</a>
+        <a href="https://x.com/GetLoveio" target="_blank">X</a>
       </nav>
+      <button id="darkModeToggle">Toggle Dark Mode</button>
     </header>
 
-    <!-- Main Content with Hearts and "Buy Now" Link -->
-    <div style="display: flex; justify-content: center; align-items: center; height: 90vh; position: relative; top: 5em;">
-      <div style="position: absolute; color: white; font-size: 2vw; text-decoration: none; padding-bottom: 1em; z-index: 1;">
-        <a href="https://www.google.com" style="text-decoration: none; color: white; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: 2em;" id="buy">Buy Now</a>
-      </div>
-      <svg xmlns="http://www.w3.org/2000/svg" width="30vw" height="30vw" viewBox="0 0 24 24" fill="#D63230" id="heart" style="z-index: -3;">
-        <path d="M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z"/>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="25vw" height="25vw" viewBox="0 0 24 24" fill="#DA4644" id="heart-1" style="position: absolute; z-index: -2;">
-        <path d="M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z"/>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="15vw" height="15vw" viewBox="0 0 24 24" fill="#DD5755" id="heart-2" style="position: absolute; z-index: -1;">
-        <path d="M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z"/>
+    <!-- Main Content -->
+    <main>
+      <section class="hero">
+        <div class="heart-container">
+          <!-- Three animated hearts -->
+          <svg id="heart1" viewBox="0 0 24 24" fill="#D63230">
+            <path
+              d="M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z"
+            />
+          </svg>
+          <svg id="heart2" viewBox="0 0 24 24" fill="#DA4644">
+            <path
+              d="M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z"
+            />
+          </svg>
+          <svg id="heart3" viewBox="0 0 24 24" fill="#DD5755">
+            <path
+              d="M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z"
+            />
+          </svg>
+        </div>
+        <a id="buy" href="https://www.google.com" target="_blank">Buy Now</a>
+        <div class="spread-love">
+          <h2 id="spread">spread</h2>
+          <h2 id="love">love</h2>
+        </div>
+      </section>
+
+      <!-- Cupid Bot Section -->
+      <section class="cupid-bot">
+        <h2>Meet Cupid Bot</h2>
+        <div class="typewriter">
+          <p id="cupid-rhyme">
+            "In the labyrinth of hearts, where pixels dance and play,<br>
+            Cupid Bot whispers secrets that light up your day.<br>
+            Through cosmic codes and digital streams, love’s fire ignites,<br>
+            Join the revolution of affection, where every soul unites."
+          </p>
+        </div>
+        <button id="newRhyme">New Rhyme</button>
+      </section>
+    </main>
+
+    <!-- Cupid Arrow Easter Egg -->
+    <div class="cupid-arrow">
+      <svg
+        width="50"
+        height="50"
+        viewBox="0 0 64 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <line
+          x1="0"
+          y1="32"
+          x2="64"
+          y2="32"
+          stroke="#ff3366"
+          stroke-width="4"
+        />
+        <polyline
+          points="48,16 64,32 48,48"
+          fill="none"
+          stroke="#ff3366"
+          stroke-width="4"
+        />
       </svg>
     </div>
 
-    <!-- "Spread Love" Text -->
-    <div style="display: flex; justify-content: center; align-items: center; height: 10vh;">
-      <div style="display: flex; justify-content: space-between; align-items: center; color: #d63230; font-size: 2em; font-family: Arial, Helvetica, sans-serif; width: 80%; padding-bottom: 50vh;">
-        <h1 id="spread" style="margin: 0;">spread</h1>
-        <h1 id="love" style="margin: 0;">love</h1>
+    <!-- Secret Love Letter Button & Popup -->
+    <button id="loveLetterBtn">Secret Love Letter</button>
+    <div id="loveLetterPopup" class="popup">
+      <div class="popup-content">
+        <span class="close">&times;</span>
+        <p>
+          "Love is the melody that turns life's chaos into a beautiful
+          symphony."
+        </p>
       </div>
     </div>
 
-    <!-- Cupid Bot Section with Schizopilled Rhymes -->
-    <div id="cupid-bot" style="padding: 2em; text-align: center; background-color: #292929; color: #fff; font-family: Arial, Helvetica, sans-serif;">
-      <h2 style="margin-top: 0;">Meet Cupid Bot</h2>
-      <p>Our Cupid Bot is not just any bot—it's your digital wingman, here to invite you into a realm where love transcends the ordinary.</p>
-      <p>With every click and share, Cupid Bot spreads affection like stardust across the digital cosmos.</p>
-      <p><em>Schizopilled Rhymes of Love:</em></p>
-      <p style="line-height: 1.5em;">
-        "In the labyrinth of hearts, where pixels dance and play,<br>
-        Cupid Bot whispers secrets that light up your day.<br>
-        Through cosmic codes and digital streams, love’s fire ignites,<br>
-        Join the revolution of affection, where every soul unites."
-      </p>
-      <p>Embrace the magic, let your heart be free, and join us in spreading love across every galaxy!</p>
-    </div>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 LOVE. All rights reserved.</p>
+    </footer>
   </body>
 </html>
