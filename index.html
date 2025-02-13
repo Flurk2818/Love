@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <title>Spread Love</title>
+    <script>
+      window.onload = function () {
+        setInterval(() => {
+          document.getElementById("heart").style.height = "30vw";
+          document.getElementById("heart").style.transition = "height 0.5s";
+          document.getElementById("heart").style.transitionTimingFunction = "ease-in-out";
+          document.getElementById("heart-1").style.height = "25vw";
+          document.getElementById("heart-1").style.transition = "height 0.5s";
+          document.getElementById("heart-1").style.transitionTimingFunction = "ease-in-out";
+          document.getElementById("heart-2").style.height = "15vw";
+          document.getElementById("heart-2").style.transition = "height 0.5s";
+          document.getElementById("heart-2").style.transitionTimingFunction = "ease-in-out";
+          document.getElementById("buy").style.fontSize = "2em";
+          document.getElementById("buy").style.transition = "font-size 0.5s";
+          document.getElementById("buy").style.transitionTimingFunction = "ease-in-out";
+          document.getElementById("spread").style.fontSize = "2em";
+          document.getElementById("spread").style.transition = "font-size 0.5s";
+          document.getElementById("spread").style.transitionTimingFunction = "ease-in-out";
+          document.getElementById("love").style.fontSize = "2em";
+          document.getElementById("love").style.transition = "font-size 0.5s";
+          document.getElementById("love").style.transitionTimingFunction = "ease-in-out";
+          setTimeout(() => {
+            document.getElementById("heart").style.height = "25vw";
+            document.getElementById("heart").style.transition = "height 0.5s";
+            document.getElementById("heart").style.transitionTimingFunction = "ease-in-out";
+            document.getElementById("heart-1").style.height = "22vw";
+            document.getElementById("heart-1").style.transition = "height 0.5s";
+            document.getElementById("heart-1").style.transitionTimingFunction = "ease-in-out";
+            document.getElementById("heart-2").style.height = "12vw";
+            document.getElementById("heart-2").style.transition = "height 0.5s";
+            document.getElementById("heart-2").style.transitionTimingFunction = "ease-in-out";
+            document.getElementById("buy").style.fontSize = "1.5em";
+            document.getElementById("buy").style.transition = "font-size 0.5s";
+            document.getElementById("buy").style.transitionTimingFunction = "ease-in-out";
+            document.getElementById("spread").style.fontSize = "1.9em";
+            document.getElementById("spread").style.transition = "font-size 0.5s";
+            document.getElementById("spread").style.transitionTimingFunction = "ease-in-out";
+            document.getElementById("love").style.fontSize = "1.9em";
+            document.getElementById("love").style.transition = "font-size 0.5s";
+            document.getElementById("love").style.transitionTimingFunction = "ease-in-out";
+          }, 500);
+        }, 1000);
+      };
+    </script>
+  </head>
+  <body style="background-color: #2f2f2f; overflow: hidden; margin: 0;">
+    <!-- Header with Navigation -->
+    <header style="width: 100%; height: 5em; background-color: #292929; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; left: 0; padding: 0 10px; box-sizing: border-box;">
+      <h1 style="font-family: Arial, Helvetica, sans-serif; font-weight: bold; color: white; margin: 0;">Love</h1>
+      <nav>
+        <a href="#" style="color: white; text-decoration: none; margin: 0 10px; font-family: Arial, Helvetica, sans-serif;">Dex</a>
+        <a href="https://t.me/GetLoveSol" style="color: white; text-decoration: none; margin: 0 10px; font-family: Arial, Helvetica, sans-serif;">TG</a>
+        <a href="https://x.com/GetLoveio" style="color: white; text-decoration: none; margin: 0 10px; font-family: Arial, Helvetica, sans-serif;">X</a>
+      </nav>
+    </header>
+
+    <!-- Main Content with Hearts and "Buy Now" Link -->
+    <div style="display: flex; justify-content: center; align-items: center; height: 90vh; position: relative; top: 5em;">
+      <div style="position: absolute; color: white; font-size: 2vw; text-decoration: none; padding-bottom: 1em; z-index: 1;">
+        <a href="https://www.google.com" style="text-decoration: none; color: white; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: 2em;" id="buy">Buy Now</a>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="30vw" height="30vw" viewBox="0 0 24 24" fill="#D63230" id="heart" style="z-index: -3;">
+        <path d="M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z"/>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="25vw" height="25vw" viewBox="0 0 24 24" fill="#DA4644" id="heart-1" style="position: absolute; z-index: -2;">
+        <path d="M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z"/>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="15vw" height="15vw" viewBox="0 0 24 24" fill="#DD5755" id="heart-2" style="position: absolute; z-index: -1;">
+        <path d="M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z"/>
+      </svg>
+    </div>
+
+    <!-- "Spread Love" Text -->
+    <div style="display: flex; justify-content: center; align-items: center; height: 10vh;">
+      <div style="display: flex; justify-content: space-between; align-items: center; color: #d63230; font-size: 2em; font-family: Arial, Helvetica, sans-serif; width: 80%; padding-bottom: 50vh;">
+        <h1 id="spread" style="margin: 0;">spread</h1>
+        <h1 id="love" style="margin: 0;">love</h1>
+      </div>
+    </div>
+
+    <!-- Cupid Bot Section with Schizopilled Rhymes -->
+    <div id="cupid-bot" style="padding: 2em; text-align: center; background-color: #292929; color: #fff; font-family: Arial, Helvetica, sans-serif;">
+      <h2 style="margin-top: 0;">Meet Cupid Bot</h2>
+      <p>Our Cupid Bot is not just any bot—it's your digital wingman, here to invite you into a realm where love transcends the ordinary.</p>
+      <p>With every click and share, Cupid Bot spreads affection like stardust across the digital cosmos.</p>
+      <p><em>Schizopilled Rhymes of Love:</em></p>
+      <p style="line-height: 1.5em;">
+        "In the labyrinth of hearts, where pixels dance and play,<br>
+        Cupid Bot whispers secrets that light up your day.<br>
+        Through cosmic codes and digital streams, love’s fire ignites,<br>
+        Join the revolution of affection, where every soul unites."
+      </p>
+      <p>Embrace the magic, let your heart be free, and join us in spreading love across every galaxy!</p>
+    </div>
+  </body>
+</html>
